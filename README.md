@@ -1,79 +1,73 @@
 # 🚚 LogiSphere
-## Cloud-Native Logistics & Supply Chain Management Platform
+## Cloud-Native Logistics and Supply Chain Management Platform
 
-> A scalable, microservices-based logistics platform designed to digitally manage orders, inventory, suppliers, deliveries, authentication, and shipment operations through independently deployable services.
+> A scalable, microservices-based logistics and supply chain management platform designed to connect customers, suppliers, inventory, orders, shipments, and delivery operations through a modern cloud-native architecture.
 
 ---
 
-## 🌐 Project Overview
+## 📌 Project Overview
 
-**LogiSphere** is a cloud-native Logistics and Supply Chain Management Platform developed using a **microservices architecture**.
+**LogiSphere** is a Cloud-Native Logistics and Supply Chain Management Platform developed using a **Microservices Architecture** and **Service-Oriented Architecture (SOA)** principles.
 
-The system addresses common challenges in logistics operations by connecting customers, suppliers, inventory management, order processing, shipments, and delivery operations through independent backend services.
+The platform is designed to simplify and automate major logistics operations such as user authentication, supplier management, product management, inventory management, order processing, shipment tracking, and delivery management.
 
-Instead of building the entire application as one monolithic system, LogiSphere follows a **service-oriented and microservices-based approach**, where each major business capability is implemented as an independent service.
+Instead of developing the entire application as a single monolithic system, LogiSphere divides the application into multiple independent services. Each service is responsible for a specific business capability and communicates with other services through RESTful APIs.
 
 This architecture improves:
 
 - Scalability
 - Maintainability
+- Modularity
+- Service reusability
 - Fault isolation
 - Independent deployment
-- Service reusability
-- Development flexibility
+- Flexibility
 - Cloud readiness
 
 ---
 
-## 🎯 Objectives
+# 🎯 Problem Statement
 
-The primary objectives of LogiSphere are:
+Traditional logistics and supply chain systems often face challenges such as:
 
-- Provide centralized logistics and supply-chain management
-- Manage customers, suppliers, and delivery personnel
-- Authenticate users securely using role-based access
-- Manage product inventory in real time
-- Process customer orders
-- Automatically update inventory after order placement
-- Manage shipments and delivery operations
-- Provide a scalable microservices architecture
-- Demonstrate Service-Oriented Architecture principles
-- Prepare the application for cloud-native deployment
+- Manual inventory management
+- Poor coordination between suppliers and customers
+- Difficulty tracking orders and shipments
+- Delays in inventory updates
+- Tightly coupled application components
+- Difficult maintenance and deployment
+- Limited scalability
+- Lack of centralized authentication and role management
+
+LogiSphere addresses these challenges by providing an integrated, modular, and scalable platform based on microservices and cloud-native principles.
 
 ---
 
-# 🏗️ System Architecture
+# 💡 Proposed Solution
 
-LogiSphere follows a **Microservices Architecture**.
+LogiSphere provides a centralized platform where different logistics operations are handled by dedicated services.
+
+The overall workflow is:
 
 ```text
-                         ┌──────────────────────┐
-                         │      Frontend        │
-                         │   Web Application     │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                         ┌──────────────────────┐
-                         │   Authentication     │
-                         │       Service        │
-                         └──────────┬───────────┘
-                                    │
-          ┌─────────────────────────┼─────────────────────────┐
-          │                         │                         │
-          ▼                         ▼                         ▼
- ┌────────────────┐       ┌────────────────┐       ┌────────────────┐
- │ Product        │       │ Inventory      │       │ Order          │
- │ Service        │       │ Service        │       │ Service        │
- └───────┬────────┘       └───────┬────────┘       └───────┬────────┘
-         │                         │                         │
-         └─────────────────────────┼─────────────────────────┘
-                                   │
-                                   ▼
-                         ┌──────────────────────┐
-                         │    Shipment Service  │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                         ┌──────────────────────┐
-                         │    Delivery Service  │
-                         └──────────────────────┘
+Customer
+   ↓
+Register / Login
+   ↓
+Browse Products
+   ↓
+Check Inventory
+   ↓
+Place Order
+   ↓
+Order Processing
+   ↓
+Inventory Update
+   ↓
+Shipment Creation
+   ↓
+Delivery Assignment
+   ↓
+Shipment Tracking
+   ↓
+Order Delivered
